@@ -4,7 +4,7 @@
     <groupId>org.xith3d</groupId>
     <artifactId>xith3d</artifactId>
     <packaging>jar</packaging>
-    <version>4.3-SNAPSHOT</version>
+    <version>4.5</version>
     <name>Trunk-xith3d</name>
     <url>http://maven.apache.org</url>
     <build>
@@ -106,7 +106,7 @@
         <dependency>
             <groupId>org.jagatoo</groupId>
             <artifactId>jagatoo</artifactId>
-            <version>${project.version}</version>
+            <version>4.5</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
