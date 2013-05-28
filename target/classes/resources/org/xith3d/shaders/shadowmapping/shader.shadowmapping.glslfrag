@@ -1,0 +1,46 @@
+uniform sampler2D texture0;
+uniform sampler2DShadow shadowMap;
+uniform int softness;
+uniform float soft_dist;
+
+// This value is interpolated across the current primitive and fed by the vertex-shader.
+varying vec4 shadowTexCoord;
+
+float getShadow()
+{
+    // Extract shadow value from shadow-map.
+    float shadow = shadow2DProj( shadowMap, shadowTexCoord ).z;
+    
+    //return( shadow * ( 1 - gl_LightModel.ambient ) );
+    if ( shadow < 1.0 )
+        return ( gl_LightModel.ambient.r );
+    else
+        return ( 1.0 );
+}
+
+void main()
+{
+    // Extract base color from first texture-unit.
+    //vec4 baseColor = texture2D( texture0, gl_TexCoord[ 0 ].st ) * gl_LightModel.ambient;
+    vec4 baseColor = texture2D( texture0, gl_TexCoord[ 0 ].st );
+    baseColor.r *= gl_LightModel.ambient.r;
+    baseColor.g *= gl_LightModel.ambient.g;
+    baseColor.b *= gl_LightModel.ambient.b;
+    baseColor.a *= gl_LightModel.ambient.a;
+    
+    if ( shadowTexCoord.w < 0.0 )
+    {
+        // No back-projection!
+        gl_FragColor = baseColor;
+    }
+    else
+    {
+        float shadow = getShadow();
+        
+        vec4 color = shadow * baseColor;
+        // restore original alpha value
+        color.a = baseColor.a;
+        
+        gl_FragColor = color;
+    }
+}

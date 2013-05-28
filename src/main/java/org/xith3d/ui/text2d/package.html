@@ -1,0 +1,55 @@
+<html>
+<body>
+
+<p><b>Dynamic Text for Xith (DTX)</b></p>
+
+<p>
+	As there is no ( or no dynamic ) text node for xith3d here is mine.
+	
+	While the Text2D version org.xith3d.text.Text2D by Terje Wiesener uses a single face with a static texture
+ 	this class uses a seperate Shape3d for every char it uses. Those shapes are stored in a static HashMap to prevent
+ 	some load when using many text objects.
+  
+ 	<ul>features:
+ 		<li>fast text and color changes</li>
+ 		<li>multiline support</li>
+ 		<li>horizontal and vertical text aligning</li>
+ 		<li>Java2D font support</li>
+ 	</ul>
+	
+	Thanks to Terje Wiesener ( who wrote the other Text2D implementation ), i borrowed the render stuff from his work :)
+</p>
+
+<p>
+	<b>Usage:</b>
+	usage should be fairly simple:
+	just create a Text2D object and put it somewhere into your scenegraph
+	for more information see the Text2D class javadoc ... i believe the method names and javadoc is easy to understand
+</p>
+
+<p>
+ 	<b>Changelog:</b>
+ 	<p>
+ 	    1.1f: third version of DTX 
+ 	    <ul>
+ 	    		<li>removed the need to call update() every once in a while. update is now called automaticly as a preRender step</li>
+ 	    		<li><b>important:</b> changed the initial orientation and size of the text giving the ability to easily add it to a parallel view for gui purposes ... as a result from this everybody who uses DTX has to check and change his text size and orientation ... sorry</li>
+			<li>created a simple test and a funky demo to demonstrate DTX</li> 	    
+			<li>created this javadoc package info file</li>
+		</ul>
+ 		1.0f: second version of DTX ... full funcionality reached ... committed
+ 		<ul>
+ 			<li>see features above</li>
+ 		</ul>
+ 	</p>
+</p>
+
+<p>
+<b>Author:</b> Florian Hofmann<br />
+<b>Toolkit Dependancies:</b>  None<br/>
+<b>Demo(s):</b>org.xith3d.test.Xith3DText2DTest & org.xith3d.test.Xith3DText2DDemo</br>
+</p>
+
+
+</body>
+</html>

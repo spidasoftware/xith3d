@@ -1,0 +1,12 @@
+varying vec4 shadowTexCoord;
+
+void main()
+{
+    gl_TexCoord[ 0 ] = gl_MultiTexCoord0;
+    
+    // shadow texture coordinates generation
+    shadowTexCoord = gl_TextureMatrix[ ${shadowMapUnit} ] * gl_ModelViewMatrix * gl_Vertex;
+    
+    // vertex calculation
+    gl_Position = ftransform();
+}

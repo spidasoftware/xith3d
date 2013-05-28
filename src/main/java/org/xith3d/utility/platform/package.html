@@ -1,0 +1,24 @@
+<html>
+<body>
+This package is intended to encapsulate information regarding various tiny changes we must accomodate
+based on the executing environment.  In this way, we can keep track of all the little workarounds so
+that they do not become completely scattered throughout the system.  This allows us to enforce
+documentation through the use of the compiler and facilitates environment-specific testing. 
+<p>
+If you find yourself wanting to write something like the following:
+<pre>
+    foo();
+    if ( "magic value".equals( System.getProperty( "blah" ) ) )
+    {
+        bar();
+    }
+</pre>
+then you should place the metadata information here instead and rewrite your code to like this:
+<pre>
+    foo();
+    if ( !EnvironmentCapabilities.getInstance().isVSyncSwitchingAllowed() )
+    {
+        bar();
+    }
+</pre>
+</body>

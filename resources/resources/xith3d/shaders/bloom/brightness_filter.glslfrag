@@ -1,0 +1,18 @@
+uniform sampler2D tex;
+
+void main()
+{
+    vec4 texel;
+    vec4 color;
+    float bright;
+    
+    vec2 coordTex = vec2( gl_TexCoord[0] );
+    
+    texel = texture2D( tex, coordTex );
+    texel -= 1.0;
+    color = -6.0 * texel * texel + 2.0;
+    bright = dot( color, vec4( 0.333333, 0.333333, 0.333333, 0.0 ) );
+    texel += ( bright + 0.6 );
+    
+    gl_FragColor = texel;
+}

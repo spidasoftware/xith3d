@@ -1,0 +1,8 @@
+README FOR JOGL
+---------------
+
+The JOGL version included with Xith3D is the JSR-231 one since
+Xith3D release 0.7
+
+The "old" JOGL support has been dropped, we really advise you to use
+the JSR-231 version from now on.

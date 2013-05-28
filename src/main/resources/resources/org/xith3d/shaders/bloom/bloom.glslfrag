@@ -1,0 +1,18 @@
+uniform sampler2D originalTex;
+uniform sampler2D filteredTex;
+
+uniform float originalWeight;
+uniform float bloomWeight;
+
+void main()
+{
+    vec4 originColor, bloomColor;
+    
+    vec2 texCoord = vec2( gl_TexCoord[0] );
+    
+    bloomColor = texture2D( filteredTex, texCoord );
+    originColor = texture2D( originalTex, texCoord );
+    
+    
+    gl_FragColor = ( (originColor * originalWeight) + (bloomColor * bloomWeight) );
+}

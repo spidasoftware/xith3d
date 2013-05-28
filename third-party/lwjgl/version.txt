@@ -1,0 +1,1 @@
+Currently LWJGL 2.1.0 is used.

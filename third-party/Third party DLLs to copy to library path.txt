@@ -1,0 +1,14 @@
+gluegen-rt.dll
+jinput-dx8.dll
+jinput-raw.dll
+joal_native.dll
+jogl.dll
+jogl_awt.dll
+jogl_cg.dll
+lwjgl.dll
+OpenAL32.dll
+swt-awt-win32-3235.dll
+swt-gdip-win32-3235.dll
+swt-wgl-win32-3235.dll
+swt-win32-3235.dll
+wrap_oal.dll
