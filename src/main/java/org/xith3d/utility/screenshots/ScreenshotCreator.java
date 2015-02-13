@@ -33,7 +33,7 @@
  */
 package org.xith3d.utility.screenshots;
 
-import org.jagatoo.util.nio.BufferUtils;
+import org.xith3d.utility.memory.ByteBufferPool;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -238,6 +238,8 @@ public class ScreenshotCreator implements Runnable
 //        new Thread( this , "Create screenshot").start();
 
 		this.run();
+		ByteBufferPool.getSingleton().releaseDroplet(byteBuffer);
+
         return ( null );
     }
     
@@ -272,9 +274,9 @@ public class ScreenshotCreator implements Runnable
             bytesPerPixel = 4;
         else
             throw new IllegalArgumentException( "Either RGB or RGBA are allowed as format." );
-        
-        this.byteBuffer = BufferUtils.createByteBuffer( width * height * bytesPerPixel );
-        this.image = new BufferedImage( width, height, format.getBufferedImageFormat() );
+
+		this.byteBuffer = ByteBufferPool.getSingleton().getDroplet(width * height * bytesPerPixel);
+		this.image = new BufferedImage( width, height, format.getBufferedImageFormat() );
         
         this.targetFile = targetFile;
     }
