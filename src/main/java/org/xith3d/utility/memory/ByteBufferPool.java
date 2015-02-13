@@ -22,7 +22,7 @@ public class ByteBufferPool {
 	 * Retrieves the singleton instance of the ByteBufferPool, and creates a new instance of one does not already exist.
 	 * @return the singleton instance of the ByteBufferPool.
 	 */
-	public static ByteBufferPool getSingleton() {
+	public synchronized static ByteBufferPool getSingleton() {
 		if (singleton == null) {
 			singleton = new ByteBufferPool();
 		}
