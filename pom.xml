@@ -4,7 +4,7 @@
     <groupId>org.xith3d</groupId>
     <artifactId>xith3d</artifactId>
     <packaging>jar</packaging>
-    <version>4.5</version>
+    <version>4.5.1</version>
     <name>Trunk-xith3d</name>
     <url>http://maven.apache.org</url>
     <build>
